@@ -3,16 +3,23 @@ pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
 import "./safeMath.sol";
-
+import "./FastDAO.sol";
 
 contract Greeter {
     string private greeting;
     uint256 greeter_a = 1;
     uint256 greeter_b = 1;
 
+    FastDAO public myFastDAOInstance;
+
     constructor(string memory _greeting) {
         console.log("Deploying a Greeter with greeting:", _greeting);
         greeting = _greeting;
+
+
+        // create a new FastDAO instance
+        myFastDAOInstance = new FastDAO();
+
     }
 
 

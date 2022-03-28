@@ -1,8 +1,10 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import {ethers} from 'hardhat';
+import {expect} from 'chai';
+
 
 describe("Greeter", function () {
   it("Should return the new greeting once it's changed", async function () {
+    console.log("Running fastDAO unit test in TypeScript");
     const Greeter = await ethers.getContractFactory("Greeter");
     const greeter = await Greeter.deploy("Hello, world!");
     await greeter.deployed();
@@ -23,5 +25,7 @@ describe("Greeter", function () {
     await setATx.wait();
     expect(await greeter.getA()).to.equal(100);
     console.log(await greeter.getA());
+
+
   });
 });
